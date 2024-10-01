@@ -7,7 +7,7 @@
 		"language": "Solidity",
 		"sources": {
 			"tronweb/contracts/ITRC20.sol": {
-				"content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\n\ninterface ITRC20 {\n    \n    function totalSupply() external view returns (uint256);\n\n    function balanceOf(address account) external view returns (uint256);\n\n    function transfer(address recipient, uint256 amount) external returns (bool);\n\n    function allowance(address owner, address spender) external view returns (uint256);\n\n    function approve(address spender, uint256 amount) external returns (bool);\n\n    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);\n\n    event Transfer(address indexed from, address indexed to, uint256 value);\n\n    event Approval(address indexed owner, address indexed spender, uint256 value);\n}"
+				"content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.27;\n\n\ninterface ITRC20 {\n    \n    function totalSupply() external view returns (uint256);\n\n    function balanceOf(address account) external view returns (uint256);\n\n    function transfer(address recipient, uint256 amount) external returns (bool);\n\n    function allowance(address owner, address spender) external view returns (uint256);\n\n    function approve(address spender, uint256 amount) external returns (bool);\n\n    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);\n\n    event Transfer(address indexed from, address indexed to, uint256 value);\n\n    event Approval(address indexed owner, address indexed spender, uint256 value);\n}"
 			}
 		},
 		"settings": {

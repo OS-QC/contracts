@@ -153,7 +153,7 @@ image::access-manager.svg[AccessManager]
 The AccessManager is designed around the concept of role and target functions:
 
 * Roles are granted to accounts (addresses) following a many-to-many approach for flexibility. This means that each user can have one or multiple roles and multiple users can have the same role.
-* Access to a restricted target function is limited to one role. A target function is defined by one https://docs.soliditylang.org/en/v0.8.20/abi-spec.html#function-selector[function selector] on one contract (called target). 
+* Access to a restricted target function is limited to one role. A target function is defined by one https://docs.soliditylang.org/en/v0.8.27/abi-spec.html#function-selector[function selector] on one contract (called target). 
 
 For a call to be authorized, the caller must bear the role that is assigned to the current target function (contract address + function selector).
 

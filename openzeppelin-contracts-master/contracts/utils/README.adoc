@@ -38,7 +38,7 @@ Miscellaneous contracts and libraries containing utility functions you can use t
  * {Multicall}: Abstract contract with a utility to allow batching together multiple calls in a single transaction. Useful for allowing EOAs to perform multiple operations at once.
  * {Context}: A utility for abstracting the sender and calldata in the current execution context.
  * {Packing}: A library for packing and unpacking multiple values into bytes32
- * {Panic}: A library to revert with https://docs.soliditylang.org/en/v0.8.20/control-structures.html#panic-via-assert-and-error-via-require[Solidity panic codes].
+ * {Panic}: A library to revert with https://docs.soliditylang.org/en/v0.8.27/control-structures.html#panic-via-assert-and-error-via-require[Solidity panic codes].
  * {Comparators}: A library that contains comparator functions to use with with the {Heap} library.
 
 [NOTE]
