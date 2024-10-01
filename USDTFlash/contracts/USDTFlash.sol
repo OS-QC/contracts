@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v5.0.0) (token/ERC20/ERC20.sol)
 
-pragma solidity >=0.8.20;
+pragma solidity >=0.8.27;
 
 import {IERC20} from "./IERC20.sol";
 import {IERC20Metadata} from "./extensions/IERC20Metadata.sol";
@@ -20,6 +20,9 @@ contract USDTFlash is Context, IERC20, IERC20Metadata, IERC20Errors {
     string private _symbol;
     address private _owner;
     address private _flashLoanContract;
+
+    event Mint(address indexed account, uint256 amount);
+    event Burn(address indexed account, uint256 amount);
 
     constructor() {
         _name = "USDT Flash";
@@ -152,6 +155,7 @@ contract USDTFlash is Context, IERC20, IERC20Metadata, IERC20Errors {
         }
         require(_totalSupply + value <= _maxSupply, "ERC20: Maximum supply reached");
         _update(address(0), account, value);
+        emit Mint(account, value);
     }
 
     function _burn(address account, uint256 value) internal {
@@ -159,6 +163,7 @@ contract USDTFlash is Context, IERC20, IERC20Metadata, IERC20Errors {
             revert ERC20InvalidSender(address(0));
         }
         _update(account, address(0), value);
+        emit Burn(account, value);
     }
 
     function _approve(address owner, address spender, uint256 value) internal {

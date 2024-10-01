@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v5.0.0) (access/manager/AccessManaged.sol)
 
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.27;
 
 import {IAuthority} from "./IAuthority.sol";
 import {AuthorityUtils} from "./AuthorityUtils.sol";
@@ -44,8 +44,8 @@ abstract contract AccessManaged is Context, IAccessManaged {
      *
      * [WARNING]
      * ====
-     * Avoid adding this modifier to the https://docs.soliditylang.org/en/v0.8.20/contracts.html#receive-ether-function[`receive()`]
-     * function or the https://docs.soliditylang.org/en/v0.8.20/contracts.html#fallback-function[`fallback()`]. These
+     * Avoid adding this modifier to the https://docs.soliditylang.org/en/v0.8.27/contracts.html#receive-ether-function[`receive()`]
+     * function or the https://docs.soliditylang.org/en/v0.8.27/contracts.html#fallback-function[`fallback()`]. These
      * functions are the only execution paths where a function selector cannot be unambiguously determined from the calldata
      * since the selector defaults to `0x00000000` in the `receive()` function and similarly in the `fallback()` function
      * if no calldata is provided. (See {_checkCanCall}).

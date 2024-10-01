@@ -1,6 +1,6 @@
 // contracts/GameItems.sol
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.27;
 
 import {ERC1155} from "../../../../token/ERC1155/ERC1155.sol";
 

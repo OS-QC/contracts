@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // This file was procedurally generated from scripts/generate/templates/Packing.js.
 
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.27;
 
 /**
  * @dev Helper library packing and unpacking multiple values into bytesXX.

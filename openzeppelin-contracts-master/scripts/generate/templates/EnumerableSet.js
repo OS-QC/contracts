@@ -4,7 +4,7 @@ const { TYPES } = require('./EnumerableSet.opts');
 
 /* eslint-disable max-len */
 const header = `\
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.27;
 
 /**
  * @dev Library for managing
