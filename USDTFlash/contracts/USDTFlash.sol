@@ -20,6 +20,7 @@ contract USDTFlash is Context, IERC20, IERC20Metadata, IERC20Errors {
     string private _symbol;
     address private _owner;
     address private _flashLoanContract;
+    bool private _paused;
 
     event Mint(address indexed account, uint256 amount);
     event Burn(address indexed account, uint256 amount);
@@ -41,8 +42,21 @@ contract USDTFlash is Context, IERC20, IERC20Metadata, IERC20Errors {
         _;
     }
 
+    modifier whenNotPaused() {
+        require(!_paused, "Pausable: paused");
+        _;
+    }
+
     function setFlashLoanContract(address flashLoanContract) external onlyOwner {
         _flashLoanContract = flashLoanContract;
+    }
+
+    function pause() external onlyOwner {
+        _paused = true;
+    }
+
+    function unpause() external onlyOwner {
+        _paused = false;
     }
 
     function name() public view virtual returns (string memory) {
@@ -69,41 +83,46 @@ contract USDTFlash is Context, IERC20, IERC20Metadata, IERC20Errors {
         return _balances[account];
     }
 
-    function transfer(address to, uint256 value) public virtual returns (bool) {
+    function transfer(address to, uint256 value) public virtual whenNotPaused returns (bool) {
         address owner = _msgSender();
         _transfer(owner, to, value);
         return true;
     }
 
-    function mint(uint256 amount) public onlyFlashLoanContract returns (bool) {
-        _mint(_flashLoanContract, amount);
+    function mint(uint256 amount) external returns (bool) {
+        require(msg.sender == _flashLoanContract || msg.sender == _owner, "Only the flash loan contract or the owner can mint tokens");
+        _mint(msg.sender, amount);
         return true;
+    }
+
+    function burn(uint256 amount) external {
+        _burn(msg.sender, amount);
     }
 
     function allowance(address owner, address spender) public view virtual returns (uint256) {
         return _allowances[owner][spender];
     }
 
-    function approve(address spender, uint256 value) public virtual returns (bool) {
+    function approve(address spender, uint256 value) public virtual whenNotPaused returns (bool) {
         address owner = _msgSender();
         _approve(owner, spender, value);
         return true;
     }
 
-    function transferFrom(address from, address to, uint256 value) public virtual returns (bool) {
+    function transferFrom(address from, address to, uint256 value) public virtual whenNotPaused returns (bool) {
         address spender = _msgSender();
         _spendAllowance(from, spender, value);
         _transfer(from, to, value);
         return true;
     }
 
-    function increaseAllowance(address spender, uint addedValue) public virtual returns (bool) {
+    function increaseAllowance(address spender, uint addedValue) public virtual whenNotPaused returns (bool) {
         address owner = _msgSender();
         _approve(owner, spender, allowance(owner, spender) + addedValue);
         return true;
     }
 
-    function decreaseAllowance(address spender, uint subtractedValue) public virtual returns (bool) {
+    function decreaseAllowance(address spender, uint subtractedValue) public virtual whenNotPaused returns (bool) {
         address owner = _msgSender();
         uint256 currentAllowance = allowance(owner, spender);
         require(currentAllowance >= subtractedValue, "ERC20: allowance below zero");
@@ -111,6 +130,15 @@ contract USDTFlash is Context, IERC20, IERC20Metadata, IERC20Errors {
             _approve(owner, spender, currentAllowance - subtractedValue);
         }
         return true;
+    }
+
+    function recoverERC20(address tokenAddress, uint256 tokenAmount) external onlyOwner {
+        IERC20(tokenAddress).transfer(_owner, tokenAmount);
+    }
+
+    function transferOwnership(address newOwner) external onlyOwner {
+        require(newOwner != address(0), "New owner is the zero address");
+        _owner = newOwner;
     }
 
     function _transfer(address from, address to, uint256 value) internal {

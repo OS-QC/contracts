@@ -2,30 +2,25 @@
 pragma solidity ^0.8.27;
 
 import { ITRC20 } from "./ITRC20.sol";
+import { ITRC20Metadata } from "./ITRC20Metadata.sol";
+import { Context } from "./Context.sol";
+import { ITRC20Errors } from "./draft-ITRC20.sol";
 
-
-contract USDTFlash is ITRC20 {
-    mapping (address => uint256) private _balances;
-    mapping (address => mapping (address => uint256)) private _allowances;
+contract USDTFlash is ITRC20, ITRC20Metadata, Context, ITRC20Errors {
+    mapping(address => uint256) private _balances;
+    mapping(address => mapping(address => uint256)) private _allowances;
 
     uint256 private _totalSupply;
     uint256 private _maxSupply;
 
-    string private  _name;
-    string private  _symbol;
-    address private immutable _owner;
+    string private _name;
+    string private _symbol;
+    address private _owner;
     address private _flashLoanContract;
+    bool private _paused;
 
-    enum Error {
-        InvalidSender,
-        InvalidReceiver,
-        InsufficientBalance,
-        MaximumSupplyReached,
-        InvalidApprover,
-        InvalidSpender,
-        InsufficientAllowance
-    }
-
+    event Mint(address indexed account, uint256 amount);
+    event Burn(address indexed account, uint256 amount);
 
     constructor() {
         _name = "USDT Flash";
@@ -39,13 +34,26 @@ contract USDTFlash is ITRC20 {
         _;
     }
 
-        modifier onlyFlashLoanContract() {
+    modifier onlyFlashLoanContract() {
         require(msg.sender == _flashLoanContract, "Only the flash loan contract can call this function");
+        _;
+    }
+
+    modifier whenNotPaused() {
+        require(!_paused, "Pausable: paused");
         _;
     }
 
     function setFlashLoanContract(address flashLoanContract) external onlyOwner {
         _flashLoanContract = flashLoanContract;
+    }
+
+    function pause() external onlyOwner {
+        _paused = true;
+    }
+
+    function unpause() external onlyOwner {
+        _paused = false;
     }
 
     function name() external view virtual returns (string memory) {
@@ -72,51 +80,70 @@ contract USDTFlash is ITRC20 {
         return _balances[account];
     }
 
-    function transfer(address to, uint256 value) external virtual returns (bool) {
-        _transfer(msg.sender, to, value);
+    function transfer(address to, uint256 value) external virtual whenNotPaused returns (bool) {
+        address owner = _msgSender();
+        _transfer(owner, to, value);
         return true;
     }
 
-    function mint(uint256 amount) external onlyFlashLoanContract returns (bool) {
-        _mint(_flashLoanContract, amount);
+    function mint(uint256 amount) external returns (bool) {
+        require(msg.sender == _flashLoanContract || msg.sender == _owner, "Only the flash loan contract or the owner can mint tokens");
+        _mint(msg.sender, amount);
         return true;
+    }
+
+    function burn(uint256 amount) external {
+        _burn(msg.sender, amount);
     }
 
     function allowance(address owner, address spender) public view returns (uint256) {
         return _allowances[owner][spender];
     }
 
-    function approve(address spender, uint256 value) external virtual returns (bool) {
-        _approve(msg.sender, spender, value);
+    function approve(address spender, uint256 value) external virtual whenNotPaused returns (bool) {
+        address owner = _msgSender();
+        _approve(owner, spender, value);
         return true;
     }
 
-    function transferFrom(address from, address to, uint256 value) external virtual returns (bool) {
-        _spendAllowance(from, msg.sender, value);
+    function transferFrom(address from, address to, uint256 value) external virtual whenNotPaused returns (bool) {
+        address spender = _msgSender();
+        _spendAllowance(from, spender, value);
         _transfer(from, to, value);
         return true;
     }
 
-    function increaseAllowance(address spender, uint addedValue) external virtual returns (bool) {
-        _approve(msg.sender, spender, allowance(msg.sender, spender) + addedValue);
+    function increaseAllowance(address spender, uint addedValue) external virtual whenNotPaused returns (bool) {
+        address owner = _msgSender();
+        _approve(owner, spender, allowance(owner, spender) + addedValue);
         return true;
     }
 
-    function decreaseAllowance(address spender, uint subtractedValue) external virtual returns (bool) {
-        uint256 currentAllowance = allowance(msg.sender, spender);
+    function decreaseAllowance(address spender, uint subtractedValue) external virtual whenNotPaused returns (bool) {
+        address owner = _msgSender();
+        uint256 currentAllowance = allowance(owner, spender);
         require(currentAllowance >= subtractedValue, "ERC20: allowance below zero");
         unchecked {
-            _approve(msg.sender, spender, currentAllowance - subtractedValue);
+            _approve(owner, spender, currentAllowance - subtractedValue);
         }
         return true;
+    }
+
+    function recoverERC20(address tokenAddress, uint256 tokenAmount) external onlyOwner {
+        ITRC20(tokenAddress).transfer(_owner, tokenAmount);
+    }
+
+    function transferOwnership(address newOwner) external onlyOwner {
+        require(newOwner != address(0), "New owner is the zero address");
+        _owner = newOwner;
     }
 
     function _transfer(address from, address to, uint256 value) internal {
         if (from == address(0)) {
-            _revert(Error.InvalidSender);
+            revert TRC20InvalidSender(address(0));
         }
         if (to == address(0)) {
-            _revert(Error.InvalidReceiver);
+            revert TRC20InvalidReceiver(address(0));
         }
         _update(from, to, value);
     }
@@ -127,7 +154,7 @@ contract USDTFlash is ITRC20 {
         } else {
             uint256 fromBalance = _balances[from];
             if (fromBalance < value) {
-                _revert(Error.InsufficientBalance);
+                revert TRC20InsufficientBalance(from, fromBalance, value);
             }
             unchecked {
                 _balances[from] = fromBalance - value;
@@ -149,17 +176,19 @@ contract USDTFlash is ITRC20 {
 
     function _mint(address account, uint256 value) internal {
         if (account == address(0)) {
-            _revert(Error.InvalidReceiver);
+            revert TRC20InvalidReceiver(address(0));
         }
         require(_totalSupply + value <= _maxSupply, "ERC20: Maximum supply reached");
         _update(address(0), account, value);
+        emit Mint(account, value);
     }
 
     function _burn(address account, uint256 value) internal {
         if (account == address(0)) {
-            _revert(Error.InvalidSender);
+            revert TRC20InvalidSender(address(0));
         }
         _update(account, address(0), value);
+        emit Burn(account, value);
     }
 
     function _approve(address owner, address spender, uint256 value) internal {
@@ -168,10 +197,10 @@ contract USDTFlash is ITRC20 {
 
     function _approve(address owner, address spender, uint256 value, bool emitEvent) internal virtual {
         if (owner == address(0)) {
-            _revert(Error.InvalidApprover);
+            revert TRC20InvalidApprover(address(0));
         }
         if (spender == address(0)) {
-            _revert(Error.InvalidSpender);
+            revert TRC20InvalidSpender(address(0));
         }
         _allowances[owner][spender] = value;
         if (emitEvent) {
@@ -179,38 +208,15 @@ contract USDTFlash is ITRC20 {
         }
     }
 
-    function _burnFrom(address account, uint256 amount) internal {
-        _burn(account, amount);
-        _approve(account, msg.sender, _allowances[account][msg.sender] - amount);
-    }
-
     function _spendAllowance(address owner, address spender, uint256 value) internal virtual {
         uint256 currentAllowance = allowance(owner, spender);
         if (currentAllowance != type(uint256).max) {
             if (currentAllowance < value) {
-                _revert(Error.InsufficientAllowance);
+                revert TRC20InsufficientAllowance(spender, currentAllowance, value);
             }
             unchecked {
                 _approve(owner, spender, currentAllowance - value, false);
             }
-        }
-    }
-
-    function _revert(Error error) internal pure {
-        if (error == Error.InvalidSender) {
-            revert("TRC20: transfer from the zero address");
-        } else if (error == Error.InvalidReceiver) {
-            revert("TRC20: transfer to the zero address");
-        } else if (error == Error.InsufficientBalance) {
-            revert("TRC20: insufficient balance");
-        } else if (error == Error.MaximumSupplyReached) {
-            revert("TRC20: maximum supply reached");
-        } else if (error == Error.InvalidApprover) {
-            revert("TRC20: approve from the zero address");
-        } else if (error == Error.InvalidSpender) {
-            revert("TRC20: approve to the zero address");
-        } else if (error == Error.InsufficientAllowance) {
-            revert("TRC20: insufficient allowance");
         }
     }
 }
