@@ -11,92 +11,6 @@
 				"type": "constructor"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "spender",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "allowance",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "needed",
-						"type": "uint256"
-					}
-				],
-				"name": "ERC20InsufficientAllowance",
-				"type": "error"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "sender",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "balance",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "needed",
-						"type": "uint256"
-					}
-				],
-				"name": "ERC20InsufficientBalance",
-				"type": "error"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "approver",
-						"type": "address"
-					}
-				],
-				"name": "ERC20InvalidApprover",
-				"type": "error"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "receiver",
-						"type": "address"
-					}
-				],
-				"name": "ERC20InvalidReceiver",
-				"type": "error"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "sender",
-						"type": "address"
-					}
-				],
-				"name": "ERC20InvalidSender",
-				"type": "error"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "spender",
-						"type": "address"
-					}
-				],
-				"name": "ERC20InvalidSpender",
-				"type": "error"
-			},
-			{
 				"anonymous": false,
 				"inputs": [
 					{
@@ -414,17 +328,7 @@
 		],
 		"devdoc": {
 			"kind": "dev",
-			"methods": {
-				"decimals()": {
-					"details": "Returns the decimals places of the token."
-				},
-				"name()": {
-					"details": "Returns the name of the token."
-				},
-				"symbol()": {
-					"details": "Returns the symbol of the token."
-				}
-			},
+			"methods": {},
 			"version": 1
 		},
 		"userdoc": {
@@ -435,7 +339,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"USDTFlash/contracts/USDTFlash.sol": "USDTFlash"
+			"tronweb/contracts/TRC20.sol": "USDTFlash"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -449,44 +353,20 @@
 		"remappings": []
 	},
 	"sources": {
-		"USDTFlash/contracts/IERC20.sol": {
-			"keccak256": "0x6cf2ec351027e2eaa045def0690a70df3ced554cdc694c84e5d36aa4134d0a47",
+		"tronweb/contracts/ITRC20.sol": {
+			"keccak256": "0x0391590550c28ee9c91a53f34b3f64994bbc580d81f7791aace4612d25d5d1df",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://9d7e4710d8e79eb0d312046dbc37596f2f18c261b85b264af9a6f0adf1c0320f",
-				"dweb:/ipfs/QmPfwsATixnuGyAKa4Zpmeftidgc53435da5mxdrQ2u3s6"
+				"bzz-raw://47339f63a1ae9e7dc5ec93a370baf24a2f539d8ab4208ee189379d4658872067",
+				"dweb:/ipfs/QmZkA9qtMekoQo5BpasuA4AwSvKDgbfzgVQsrQyYbFboe6"
 			]
 		},
-		"USDTFlash/contracts/USDTFlash.sol": {
-			"keccak256": "0x97b7f1f4ecbc37f3d2e5087034b3799c1939d2951eb3f705050ea2240681c26c",
+		"tronweb/contracts/TRC20.sol": {
+			"keccak256": "0x709ddb45fb78cae4ede8fa477cb1c41a3eb9ad006cfa39dcc454b6f05878f06a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d9119a6a358f06969110b8b91789420da47d1168a5348232cf9330caf797a680",
-				"dweb:/ipfs/QmbLxSABJGV6u3gcDNP9ZLCHouJr98gyWzpmVBfr5YvC72"
-			]
-		},
-		"USDTFlash/contracts/extensions/IERC20Metadata.sol": {
-			"keccak256": "0x6c55fd31e2e800a519492a4d757e1c4b9256df76e0879fa1d887fda303436af1",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://5c4d9d6ef18548f499c019996cf18ea50e96075dabde64a8fd1f0898f3c56c3f",
-				"dweb:/ipfs/QmdRU4BUSrz7XHuxKJmqRxDr4C6FJBhK9aiEb342Mt5gAu"
-			]
-		},
-		"USDTFlash/contracts/interfaces/draft-IERC6093.sol": {
-			"keccak256": "0x619d9bbe87283cc41324967d51dc0b9aabd5b60060da32553bb01294267bc50e",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://34978080e362b79ffebbe08327136b5619a200edf10632a07f4c1ec0391cf185",
-				"dweb:/ipfs/Qmf7pc8BM6Kh7erF1yrnhc6m7TGsBVjzq9JCm2aNtAADGW"
-			]
-		},
-		"USDTFlash/contracts/utils/Context.sol": {
-			"keccak256": "0x81edb2bd1afb01a323ec73b53f9d91b6d3fcfae03044f4e62ae2ab5779a237bf",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://6d1af43c5e5b4ac08fe320a85516ca3824ff7531dbe333220a951c67965597e5",
-				"dweb:/ipfs/QmZva6P4Rq26xstfugS2Cect5HZLJM5UBDwzEs5JFG2T7K"
+				"bzz-raw://10a39fc4aba473ea46bd53136ae7ebb3a5137f96e15d8dd3a07f00ad19b1ff9a",
+				"dweb:/ipfs/QmTkNsayn8F4QbMoz6nRJs5AnYoxxXghaTyHN5bCT59VGG"
 			]
 		}
 	},

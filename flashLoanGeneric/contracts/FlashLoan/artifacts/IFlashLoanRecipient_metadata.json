@@ -1,0 +1,82 @@
+{
+	"compiler": {
+		"version": "0.8.27+commit.40a35a09"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "contract IERC20[]",
+						"name": "tokens",
+						"type": "address[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "amounts",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "feeAmounts",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "bytes",
+						"name": "userData",
+						"type": "bytes"
+					}
+				],
+				"name": "receiveFlashLoan",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"flashLoanGeneric/contracts/FlashLoan/IFlashLoanRecipient.sol": "IFlashLoanRecipient"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"USDTFlash/contracts/IERC20.sol": {
+			"keccak256": "0x6cf2ec351027e2eaa045def0690a70df3ced554cdc694c84e5d36aa4134d0a47",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9d7e4710d8e79eb0d312046dbc37596f2f18c261b85b264af9a6f0adf1c0320f",
+				"dweb:/ipfs/QmPfwsATixnuGyAKa4Zpmeftidgc53435da5mxdrQ2u3s6"
+			]
+		},
+		"flashLoanGeneric/contracts/FlashLoan/IFlashLoanRecipient.sol": {
+			"keccak256": "0x357a89a08682edc004fd3f67a78f92900cece8f8f56570045f5873ad59f21171",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bbfdaa6d3b8f1be375ff30db1ed5f0003dcbeed11d73fdc6c2811d84efda36b1",
+				"dweb:/ipfs/QmUfH4axf4DdMD7rHgEWsvXXdg7zWbWuRbHkQMoQCSagc2"
+			]
+		}
+	},
+	"version": 1
+}
