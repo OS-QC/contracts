@@ -339,7 +339,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"tronweb/contracts/USDTFlash_TRC20.sol": "USDTFlash"
+			"tronweb/contracts/USDTFlash_TRC20.sol": "USDTFlsh"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -362,11 +362,11 @@
 			]
 		},
 		"tronweb/contracts/USDTFlash_TRC20.sol": {
-			"keccak256": "0x587caf574f7bd2ed2e2d577b3ebcd058899dd72ec60072aa24f3c344567747e5",
+			"keccak256": "0x4f63ad44833b414f83486b0225f8108387e6ec7da5dfadc18461114ee2269ca2",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e7f176036285994629f7cc9acc177e4fd55d7580b5b54519ada91d2dfce3cfe1",
-				"dweb:/ipfs/QmYpjnYp88ycRDBD2cVYqMen2nhRLZ9EaEiKYDaUYhX6Gt"
+				"bzz-raw://7673efcabf5cfdf5d4fdeb83908d8234797d909af343d0ef816fbae34b426080",
+				"dweb:/ipfs/QmZug4oDjjyrtoES88Newb86LmP8Vb42Bm8CFXV9rC2neR"
 			]
 		}
 	},
