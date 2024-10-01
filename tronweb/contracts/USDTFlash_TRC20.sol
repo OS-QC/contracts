@@ -4,7 +4,7 @@ pragma solidity ^0.8.27;
 import { ITRC20 } from "./ITRC20.sol";
 
 
-contract USDTFlc:\Users\default.LAPTOP-M1RNKBQE\Desktop\flash - copia\FlashLoanAave2\contracts\FlashLoan.solash is ITRC20 {
+contract USDTFlash is ITRC20 {
     mapping (address => uint256) private _balances;
     mapping (address => mapping (address => uint256)) private _allowances;
 
