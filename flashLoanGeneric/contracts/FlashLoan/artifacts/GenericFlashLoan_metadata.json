@@ -1,0 +1,461 @@
+{
+	"compiler": {
+		"version": "0.8.27+commit.40a35a09"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_usdtTokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_usdtFlashTokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_dexAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_tokenIn",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_tokenOut",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_poolFee",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_swapAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_numOperations",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Received",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "depositCollateral",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "dexAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "getTokenBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "meswapContractAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "numOperations",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "poolFee",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract IERC20[]",
+						"name": "tokens",
+						"type": "address[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "amounts",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "feeAmounts",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"name": "receiveFlashLoan",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "repayFlashLoan",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "requestFlashLoan",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_meswapContractAddress",
+						"type": "address"
+					}
+				],
+				"name": "setMeSwap",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_numOperations",
+						"type": "uint256"
+					}
+				],
+				"name": "setNumOperations",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_poolFee",
+						"type": "uint256"
+					}
+				],
+				"name": "setPoolFee",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_swapAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "setSwapAmount",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_tokenIn",
+						"type": "address"
+					}
+				],
+				"name": "setTokenIn",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_tokenOut",
+						"type": "address"
+					}
+				],
+				"name": "setTokenOut",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "swapAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "tokenIn",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "tokenOut",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "usdtFlashToken",
+				"outputs": [
+					{
+						"internalType": "contract USDTFlash",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "usdtToken",
+				"outputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdrawCollateral",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "withdrawGains",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"flashLoanGeneric/contracts/FlashLoan/flashLoanSwap.sol": "GenericFlashLoan"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"USDTFlash/contracts/IERC20.sol": {
+			"keccak256": "0x6cf2ec351027e2eaa045def0690a70df3ced554cdc694c84e5d36aa4134d0a47",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9d7e4710d8e79eb0d312046dbc37596f2f18c261b85b264af9a6f0adf1c0320f",
+				"dweb:/ipfs/QmPfwsATixnuGyAKa4Zpmeftidgc53435da5mxdrQ2u3s6"
+			]
+		},
+		"USDTFlash/contracts/USDTFlash.sol": {
+			"keccak256": "0x97b7f1f4ecbc37f3d2e5087034b3799c1939d2951eb3f705050ea2240681c26c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d9119a6a358f06969110b8b91789420da47d1168a5348232cf9330caf797a680",
+				"dweb:/ipfs/QmbLxSABJGV6u3gcDNP9ZLCHouJr98gyWzpmVBfr5YvC72"
+			]
+		},
+		"USDTFlash/contracts/extensions/IERC20Metadata.sol": {
+			"keccak256": "0x6c55fd31e2e800a519492a4d757e1c4b9256df76e0879fa1d887fda303436af1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5c4d9d6ef18548f499c019996cf18ea50e96075dabde64a8fd1f0898f3c56c3f",
+				"dweb:/ipfs/QmdRU4BUSrz7XHuxKJmqRxDr4C6FJBhK9aiEb342Mt5gAu"
+			]
+		},
+		"USDTFlash/contracts/interfaces/draft-IERC6093.sol": {
+			"keccak256": "0x619d9bbe87283cc41324967d51dc0b9aabd5b60060da32553bb01294267bc50e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://34978080e362b79ffebbe08327136b5619a200edf10632a07f4c1ec0391cf185",
+				"dweb:/ipfs/Qmf7pc8BM6Kh7erF1yrnhc6m7TGsBVjzq9JCm2aNtAADGW"
+			]
+		},
+		"USDTFlash/contracts/utils/Context.sol": {
+			"keccak256": "0x81edb2bd1afb01a323ec73b53f9d91b6d3fcfae03044f4e62ae2ab5779a237bf",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6d1af43c5e5b4ac08fe320a85516ca3824ff7531dbe333220a951c67965597e5",
+				"dweb:/ipfs/QmZva6P4Rq26xstfugS2Cect5HZLJM5UBDwzEs5JFG2T7K"
+			]
+		},
+		"flashLoanGeneric/contracts/FlashLoan/flashLoanSwap.sol": {
+			"keccak256": "0x50c7f4ce09f199717308ca6439b1f83ea1596d8ef6ecfa8de622571e6aa97349",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://feb4827cc23500a45c777c3a2b320bf3c126089b5a3b2026df579d2032d61331",
+				"dweb:/ipfs/QmYXnJoTkX87zjSbJauuceTNtfEHj4eJXJnCtXWPBJCe1v"
+			]
+		}
+	},
+	"version": 1
+}

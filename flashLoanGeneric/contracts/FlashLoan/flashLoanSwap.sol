@@ -1,5 +1,7 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.8.27;
+//Contrato general, no tiene interfaz para ninguna plataforma
+
+pragma solidity >=0.8.20;
 
 import { IERC20 } from "../../../USDTFlash/contracts/IERC20.sol";
 import { USDTFlash } from "../../../USDTFlash/contracts/USDTFlash.sol";
@@ -29,9 +31,6 @@ contract GenericFlashLoan {
     address public dexAddress;
 
     event Received(address sender, uint256 amount);
-    event LoanRequested(address indexed borrower, uint256 amount);
-    event LoanRepaid(address indexed borrower, uint256 amount);
-    event SwapExecuted(address indexed tokenIn, address indexed tokenOut, uint256 amount);
 
     constructor(
         address _usdtTokenAddress,
@@ -93,12 +92,10 @@ contract GenericFlashLoan {
 
     function requestFlashLoan(uint256 amount) external onlyOwner {
         IDex(dexAddress).borrow(amount, address(usdtFlashToken));
-        emit LoanRequested(msg.sender, amount);
     }
 
     function repayFlashLoan(uint256 amount) external onlyOwner {
         IDex(dexAddress).repay(amount, address(usdtFlashToken));
-        emit LoanRepaid(msg.sender, amount);
     }
 
     function receiveFlashLoan(
@@ -129,7 +126,6 @@ contract GenericFlashLoan {
         meswap.setTokenOut(_tokenOut);
         meswap.setPoolFee(uint24(poolFee));
         meswap.swapExactInputSingle(_amount);
-        emit SwapExecuted(_tokenIn, _tokenOut, _amount);
     }
 
     function swapToUSDT(uint256 amount) internal {
@@ -138,7 +134,6 @@ contract GenericFlashLoan {
         meswap.setTokenOut(address(usdtToken));
         meswap.setPoolFee(uint24(poolFee));
         meswap.swapExactInputSingle(amount);
-        emit SwapExecuted(tokenOut, address(usdtToken), amount);
     }
 
     function getTokenBalance(address tokenAddress, address account) public view returns (uint256) {

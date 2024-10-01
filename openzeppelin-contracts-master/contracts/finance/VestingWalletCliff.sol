@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.27;
+pragma solidity ^0.8.20;
 
 import {SafeCast} from "../utils/math/SafeCast.sol";
 import {VestingWallet} from "./VestingWallet.sol";

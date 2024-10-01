@@ -10,7 +10,7 @@ if (!INFURA_ENDPOINT || !PRIVATE_KEY) {
 }
 
 const config: HardhatUserConfig = {
-  solidity: "0.8.27",
+  solidity: "0.8.20",
   networks: {
     goerli: {
       url: INFURA_ENDPOINT,

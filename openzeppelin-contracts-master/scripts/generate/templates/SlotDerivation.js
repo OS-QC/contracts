@@ -3,14 +3,14 @@ const sanitize = require('../helpers/sanitize');
 const { TYPES } = require('./Slot.opts');
 
 const header = `\
-pragma solidity ^0.8.27;
+pragma solidity ^0.8.20;
 
 /**
  * @dev Library for computing storage (and transient storage) locations from namespaces and deriving slots
  * corresponding to standard patterns. The derivation method for array and mapping matches the storage layout used by
  * the solidity language / compiler.
  *
- * See https://docs.soliditylang.org/en/v0.8.27/internals/layout_in_storage.html#mappings-and-dynamic-arrays[Solidity docs for mappings and dynamic arrays.].
+ * See https://docs.soliditylang.org/en/v0.8.20/internals/layout_in_storage.html#mappings-and-dynamic-arrays[Solidity docs for mappings and dynamic arrays.].
  *
  * Example usage:
  * \`\`\`solidity

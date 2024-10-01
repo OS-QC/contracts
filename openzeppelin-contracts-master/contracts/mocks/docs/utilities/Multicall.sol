@@ -1,6 +1,6 @@
 // contracts/Box.sol
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.27;
+pragma solidity ^0.8.20;
 
 import {Multicall} from "../../../utils/Multicall.sol";
 
