@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.27;
+pragma solidity ^0.8.20;
 
 import { ITRC20 } from "./ITRC20.sol";
 import { ITRC20Metadata } from "./ITRC20Metadata.sol";
