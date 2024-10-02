@@ -1,11 +1,7 @@
 // SPDX-License-Identifier: MIT
-// OpenZeppelin Contracts (last updated v5.0.0) (interfaces/draft-IERC6093.sol)
 pragma solidity >=0.8.27;
 
-/**
- * @dev Standard ERC-20 Errors
- * Interface of the https://eips.ethereum.org/EIPS/eip-6093[ERC-6093] custom errors for ERC-20 tokens.
- */
+
 interface ITRC20Errors {
 
     error TRC20InsufficientBalance(address sender, uint256 balance, uint256 needed);
