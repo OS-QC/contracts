@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.27;
+pragma solidity ^0.8.0;
 
 import {MerkleProof} from "../utils/cryptography/MerkleProof.sol";
 

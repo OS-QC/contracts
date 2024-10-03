@@ -4,7 +4,7 @@ const { SIZES } = require('./Packing.opts');
 
 // TEMPLATE
 const header = `\
-pragma solidity ^0.8.27;
+pragma solidity ^0.8.0;
 
 import {Test} from "forge-std/Test.sol";
 import {Packing} from "@openzeppelin/contracts/utils/Packing.sol";

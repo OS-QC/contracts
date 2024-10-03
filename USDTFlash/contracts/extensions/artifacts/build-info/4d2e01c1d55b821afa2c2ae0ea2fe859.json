@@ -1,8 +1,8 @@
 {
 	"id": "4d2e01c1d55b821afa2c2ae0ea2fe859",
 	"_format": "hh-sol-build-info-1",
-	"solcVersion": "0.8.27",
-	"solcLongVersion": "0.8.27+commit.40a35a09",
+	"solcVersion": "0.8.0",
+	"solcLongVersion": "0.8.0+commit.40a35a09",
 	"input": {
 		"language": "Solidity",
 		"sources": {
@@ -56,8 +56,8 @@
 			{
 				"component": "general",
 				"errorCode": "3420",
-				"formattedMessage": "Warning: Source file does not specify required compiler version! Consider adding \"pragma solidity ^0.8.27;\"\n--> contracts/extensions/IERCMetadata.sol\n\n",
-				"message": "Source file does not specify required compiler version! Consider adding \"pragma solidity ^0.8.27;\"",
+				"formattedMessage": "Warning: Source file does not specify required compiler version! Consider adding \"pragma solidity ^0.8.0;\"\n--> contracts/extensions/IERCMetadata.sol\n\n",
+				"message": "Source file does not specify required compiler version! Consider adding \"pragma solidity ^0.8.0;\"",
 				"severity": "warning",
 				"sourceLocation": {
 					"end": -1,

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.8.27;
+pragma solidity >=0.8.0;
 
 import { IERC20 } from "../../../USDTFlash/contracts/IERC20.sol";
 import { USDTFlash } from "../../../USDTFlash/contracts/USDTFlash.sol";
