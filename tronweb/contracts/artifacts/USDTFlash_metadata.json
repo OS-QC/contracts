@@ -533,7 +533,7 @@
 		"compilationTarget": {
 			"tronweb/contracts/USDTFlash_TRC20.sol": "USDTFlash"
 		},
-		"evmVersion": "london",
+		"evmVersion": "cancun",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -562,11 +562,11 @@
 			]
 		},
 		"tronweb/contracts/ITRC20Metadata.sol": {
-			"keccak256": "0xdf2b188bdc67c07f7f8c255d498ce0434aad343215af1ef17ee3f4536d558073",
+			"keccak256": "0x4a685c084828f430f4edd5bc5670339c7bee3096d153eb757004c43a1231185a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://282d7335cf7b730dc6aced0847e2b787c2939c3c3f13bee7f4e9f40bf05890fb",
-				"dweb:/ipfs/QmcoRxXakKiJhg9PmJ3kudTxTjzFWKu3eo5yDyhDimJv7Q"
+				"bzz-raw://4328a93456b0769132bfc2557d97c81352804af5d2fb66f18fef60e426fa03ca",
+				"dweb:/ipfs/QmTz9GEi7w9gXNetCJ2KReUBiQmcdgDDH6iPhsmW1R6rcD"
 			]
 		},
 		"tronweb/contracts/USDTFlash_TRC20.sol": {
@@ -578,11 +578,11 @@
 			]
 		},
 		"tronweb/contracts/draft-ITRC20.sol": {
-			"keccak256": "0x5000aa1590bc372af4bc3a0a5f414561f84ebb3cdc9ad405cb366c27bde1a46b",
+			"keccak256": "0xa6ccb5c029feea5ef811b7a3ed39c6500492a964c0017c694df04e971485eca7",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1ec179ba6e6ea5adacb137e521f65746f95d34102bd812280f70c46bae0d2304",
-				"dweb:/ipfs/QmUF5xCfoxTyk1MnT8ijko2YnDrXs2DX2jG2FyfGoNGV7i"
+				"bzz-raw://f77d353cb2c2648e394d4ca160fe958892235513a853823aa192456eeb9f1b53",
+				"dweb:/ipfs/QmPzKHYW9bbsqpGsE9DQu847ioauBFtvmGYoTfTWeBTG63"
 			]
 		}
 	},
