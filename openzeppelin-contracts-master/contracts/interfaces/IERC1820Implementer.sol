@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v5.0.0) (interfaces/IERC1820Implementer.sol)
 
-pragma solidity ^0.8.27;
+pragma solidity ^0.8.0;
 
 /**
  * @dev Interface for an ERC-1820 implementer, as defined in the

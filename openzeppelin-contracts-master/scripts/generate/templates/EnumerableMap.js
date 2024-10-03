@@ -4,7 +4,7 @@ const { TYPES } = require('./EnumerableMap.opts');
 
 /* eslint-disable max-len */
 const header = `\
-pragma solidity ^0.8.27;
+pragma solidity ^0.8.0;
 
 import {EnumerableSet} from "./EnumerableSet.sol";
 

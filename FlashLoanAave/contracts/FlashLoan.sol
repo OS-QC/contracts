@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.8.27;
+pragma solidity >=0.8.0;
 
 import { FlashLoanSimpleReceiverBase } from "https://github.com/aave-dao/aave-v3-origin/blob/main/src/core/contracts/flashloan/base/FlashLoanSimpleReceiverBase.sol";
 import { IERC20 } from "https://github.com/aave-dao/aave-v3-origin/blob/main/src/core/contracts/dependencies/openzeppelin/contracts/IERC20.sol";
