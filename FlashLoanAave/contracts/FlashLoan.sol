@@ -5,7 +5,7 @@ import { FlashLoanSimpleReceiverBase } from "@aave/core-v3/contracts/flashloan/b
 import { IERC20 } from "@aave/core-v3/contracts/dependencies/openzeppelin/contracts/IERC20.sol";
 import { IPoolAddressesProvider } from "@aave/core-v3/contracts/interfaces/IPoolAddressesProvider.sol";
 
-contract FlashLoan is FlashLoanSimpleReceiverBase {
+contract FlashLoanArbitrage is FlashLoanSimpleReceiverBase {
     address payable owner;
 
     event ContractDeployed(address owner);
@@ -23,8 +23,15 @@ contract FlashLoan is FlashLoanSimpleReceiverBase {
         bytes calldata params
     ) external override returns (bool) {
 
-        // LOGICA DE ARBITRAJE
+        // Decodificar los parámetros
+        (address[] memory exchanges, bytes[] memory data) = abi.decode(params, (address[], bytes[]));
 
+        // Ejecutar la lógica de arbitraje
+        for (uint256 i = 0; i < exchanges.length; i++) {
+            (bool success, ) = exchanges[i].call(data[i]);
+            require(success, "Arbitrage operation failed");
+        }
+        // Rembolso del prestamo
         uint256 amountOwned = amount + premium;
         IERC20(asset).approve(address(POOL), amountOwned);
 
