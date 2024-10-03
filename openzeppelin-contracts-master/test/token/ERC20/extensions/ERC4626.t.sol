@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.27;
 
 import {ERC4626Test} from "erc4626-tests/ERC4626.test.sol";
 

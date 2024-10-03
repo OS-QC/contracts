@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.0+commit.40a35a09"
+		"version": "0.8.27+commit.40a35a09"
 	},
 	"language": "Solidity",
 	"output": {
@@ -194,68 +194,60 @@
 		"remappings": []
 	},
 	"sources": {
-		"@aave/core-v3/contracts/dependencies/openzeppelin/contracts/IERC20.sol": {
-			"keccak256": "0xf57d62241e553696a1324d225663ba2e1a51db0a51ca236d0c1b009d89b6284c",
-			"license": "AGPL-3.0",
-			"urls": [
-				"bzz-raw://d327db93b636790909aa137124f30a856ac1631cb79c476aa188f9627fda8d03",
-				"dweb:/ipfs/QmaxpmEoBFioeNYmpxJemyZ7aYF2nX1NKW1XDqREm7i6es"
-			]
-		},
-		"@aave/core-v3/contracts/flashloan/base/FlashLoanSimpleReceiverBase.sol": {
-			"keccak256": "0x3a04fc046c4f04c71ff230eba56e56bb718be41e4317f0c938bd287d81e384b1",
-			"license": "AGPL-3.0",
-			"urls": [
-				"bzz-raw://8a02e8f6034e6536269eca55dc4e068e584a67cef530dea865d9a75e0e950ca3",
-				"dweb:/ipfs/QmdwL6Wvbk8QAyThNzPkeCfmTUryUdUnkbBDSRs5eigBmj"
-			]
-		},
-		"@aave/core-v3/contracts/flashloan/interfaces/IFlashLoanSimpleReceiver.sol": {
-			"keccak256": "0xba50a7834ddfdca3e3cfac09043f72699be42ff88925641ac30950a434b2b2ff",
-			"license": "AGPL-3.0",
-			"urls": [
-				"bzz-raw://588513e813da8c9edf06bdd8912f33f5e304735e4b0145da9fb034eb46f205b5",
-				"dweb:/ipfs/Qmco68eeRnTUGyZaoZ9Vu4R7xzH9x1pUwP36nUvrxnxHxg"
-			]
-		},
-		"@aave/core-v3/contracts/interfaces/IPool.sol": {
-			"keccak256": "0xbfd2077251c8dc766a56d45f4b03eb07f3441323e79c0f794efea3657a99747f",
-			"license": "AGPL-3.0",
-			"urls": [
-				"bzz-raw://c6ff6221de0ea877932c73c0b99d3e4535f293053ae44f9f9d6b9d265e9af2f6",
-				"dweb:/ipfs/QmSTaEKrhz1xNVnx4oBzWw8DenYPShVzJoP1A9GTEWkAzX"
-			]
-		},
-		"@aave/core-v3/contracts/interfaces/IPoolAddressesProvider.sol": {
-			"keccak256": "0x33d4308d9407b4ee2297fc4ba5acce1a96a6c658189e2778a4f6b90e032fb3b5",
-			"license": "AGPL-3.0",
-			"urls": [
-				"bzz-raw://978336a2a40229ccc7749344be890862ea12e17e9fffe5bb977ba3841de07b5a",
-				"dweb:/ipfs/QmScNrQfDSPg1afJmkCty6fZkETUrWTmEXWeTmHoe7mSqa"
-			]
-		},
-		"@aave/core-v3/contracts/protocol/libraries/types/DataTypes.sol": {
-			"keccak256": "0x771cb99fd8519c974f7e12130387c4d9a997a6e8d0ac10e4303b842fe53efa88",
-			"license": "BUSL-1.1",
-			"urls": [
-				"bzz-raw://0f41689d1d58bc13678c749bae8830f5a8b19b89cd135e962bf07d483350f828",
-				"dweb:/ipfs/QmQSNGDxjYGqT1GU2CZzsWUTNcAtcfkg1jDGTH516nCAfN"
-			]
-		},
 		"FlashLoanAave/contracts/FlashLoan.sol": {
-<<<<<<< HEAD
-			"keccak256": "0x12e25814f7bf1e8d286289691d4ffb9147aec5270c94bb13317fc5813f224a28",
+			"keccak256": "0x498c0b90b2f8d042e5b8b841601cc87c54cc2e6bfbb2a4c4db446f1a718f67f9",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://60dda18ccc46fe8863ed66e2841304c11eaae3e7ce932997a7c5a064d81bcb3a",
-				"dweb:/ipfs/QmV8hBLRyGEsgEf2ehzUoVG9G4PCmGbbzXW1LXSTYNyQjs"
-=======
-			"keccak256": "0xece77e8008c5aa568d551d86bd396108cc6a16d409df85156e5df4da610453ae",
+				"bzz-raw://a9d3231acb09990f188c9aec1cd340fd8721ebd73944eb55fee2a93ed79c1d5a",
+				"dweb:/ipfs/QmWbdczt18mFSb2A5YgDkWReaX4rBvajG93K8K2aaxnE35"
+			]
+		},
+		"https://github.com/aave-dao/aave-v3-origin/blob/main/src/core/contracts/dependencies/openzeppelin/contracts/IERC20.sol": {
+			"keccak256": "0x59485ca93d265d39a3993403c708a43b2548b35937a94b88c41b7a2edcfb656e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://ec55e6051bc8592abb5d752e44f0d5ea50acd17f9dedacb264402de3e1b7a6de",
-				"dweb:/ipfs/QmVGPZbvuSJWYvCWG2TzCtNNjg6vGtW1T3AP5nmdGMZzM5"
->>>>>>> ab2a897830666da20385e077238077bbe973538a
+				"bzz-raw://2f35d88f3ae38c88e3b52f3f1e0bff0f80b5b661b292d856c69ec9ab7019e744",
+				"dweb:/ipfs/QmWVk2r38WQEasD6p7CJPAp3PBWve3Y37wUJFTMagwtPgK"
+			]
+		},
+		"https://github.com/aave-dao/aave-v3-origin/blob/main/src/core/contracts/flashloan/base/FlashLoanSimpleReceiverBase.sol": {
+			"keccak256": "0xf944389df204735730a1ead8532bd170d4526c62571a5a0e851df173e9ea6e0b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b74fc74fa4b781acab76d1714c2b37ce23f39acb8599c9e3cb92f4dd7b17a80b",
+				"dweb:/ipfs/QmNxGL6beGPtyyfYKT7Re8MZrGJ77UfuMEV4k3yekKjZzW"
+			]
+		},
+		"https://github.com/aave-dao/aave-v3-origin/blob/main/src/core/contracts/flashloan/interfaces/IFlashLoanSimpleReceiver.sol": {
+			"keccak256": "0xeb0651adb6e85b7597ade89e8d5eaa51b91e510284f8618dd553da2a218eb096",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://054f06a85e167a4c5448db57c8bc59fb6750df6db1abd30668ec007cc3b3b85d",
+				"dweb:/ipfs/QmNh7fAQcq71SpRD9bEDVUn5JuwBgy6HWMaqCjehdNhNAc"
+			]
+		},
+		"https://github.com/aave-dao/aave-v3-origin/blob/main/src/core/contracts/interfaces/IPool.sol": {
+			"keccak256": "0x4b312114ec59416beacfd8baf6a96afcfb4bff408e60ba2c1de8323fee0aa5ef",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://75278bbdc7c65f52ac0fa30271aa3625d13fbab626e637773a02d5d6ebf322ae",
+				"dweb:/ipfs/Qmf5SE9Vk7BQoiN2R293VgW4KuuWVKBtzXaXJ86U9ppgF6"
+			]
+		},
+		"https://github.com/aave-dao/aave-v3-origin/blob/main/src/core/contracts/interfaces/IPoolAddressesProvider.sol": {
+			"keccak256": "0xa60921cf54e91ca8db038effeffc876089b2e72dbf01d68a10ff461770d345e5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0de2fd03bf5cd6ae8718a486e5d615c67b260d0608b9fb7076888a4bfaa0e4b4",
+				"dweb:/ipfs/QmXpdmxMugyJcBFAGJEruB78bkkuTwrH9esYRaS6wiQoMs"
+			]
+		},
+		"https://github.com/aave-dao/aave-v3-origin/blob/main/src/core/contracts/protocol/libraries/types/DataTypes.sol": {
+			"keccak256": "0xaf663b90470d1a47a403e4d7157a8fbbaa64946c000966c23e800ad6e02342af",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f36c20e33c6358cea0dcf4b459c06dad2b04e46099465dc5ab67cbcb58c935cd",
+				"dweb:/ipfs/QmcLsJqresz6Npjzh7NyTV836L2QQe3pfWD1KXp4k7pbkR"
 			]
 		}
 	},

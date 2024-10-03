@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.27;
 
 import {IGovernor, Governor} from "../../governance/Governor.sol";
 import {GovernorTimelockControl} from "../../governance/extensions/GovernorTimelockControl.sol";

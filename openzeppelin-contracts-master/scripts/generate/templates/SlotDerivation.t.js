@@ -3,7 +3,7 @@ const { capitalize } = require('../../helpers');
 const { TYPES } = require('./Slot.opts');
 
 const header = `\
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.27;
 
 import {Test} from "forge-std/Test.sol";
 import {SymTest} from "halmos-cheatcodes/SymTest.sol";
