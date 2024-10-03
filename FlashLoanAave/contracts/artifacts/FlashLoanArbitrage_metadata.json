@@ -243,11 +243,19 @@
 			]
 		},
 		"FlashLoanAave/contracts/FlashLoan.sol": {
+<<<<<<< HEAD
 			"keccak256": "0x12e25814f7bf1e8d286289691d4ffb9147aec5270c94bb13317fc5813f224a28",
 			"license": "MIT",
 			"urls": [
 				"bzz-raw://60dda18ccc46fe8863ed66e2841304c11eaae3e7ce932997a7c5a064d81bcb3a",
 				"dweb:/ipfs/QmV8hBLRyGEsgEf2ehzUoVG9G4PCmGbbzXW1LXSTYNyQjs"
+=======
+			"keccak256": "0xece77e8008c5aa568d551d86bd396108cc6a16d409df85156e5df4da610453ae",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ec55e6051bc8592abb5d752e44f0d5ea50acd17f9dedacb264402de3e1b7a6de",
+				"dweb:/ipfs/QmVGPZbvuSJWYvCWG2TzCtNNjg6vGtW1T3AP5nmdGMZzM5"
+>>>>>>> ab2a897830666da20385e077238077bbe973538a
 			]
 		}
 	},
