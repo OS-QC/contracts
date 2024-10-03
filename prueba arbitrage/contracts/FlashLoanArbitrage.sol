@@ -56,7 +56,7 @@ contract FlashLoanArbitrage is FlashLoanSimpleReceiverBase {
         //
 
         // Arbirtage operation
-        dexContract.depositUSDC(1000000000); // 1000 USDC
+        dexContract.depositUSDC(1000000); // 1 USDC
         dexContract.buyDAI();
         dexContract.depositDAI(dai.balanceOf(address(this)));
         dexContract.sellDAI();
