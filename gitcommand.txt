@@ -1,0 +1,12 @@
+feat: para agregar nuevas funcionalidades.
+fix: para solucion de errores.
+doc: para documentar el codigo.
+chore: para cambios menores o tareas de mantenimiento que no afectan el código de producción (por ejemplo, actualizaciones de dependencias).
+refactor: para cambios en el código que no afectan su funcionalidad pero mejoran su estructura o legibilidad.
+style: para cambios relacionados con el formato del código (por ejemplo, correcciones de estilo, espacios en blanco, etc.).
+test: para añadir o modificar pruebas unitarias.
+perf: para mejoras de rendimiento.
+build: para cambios que afectan el sistema de construcción o dependencias externas (por ejemplo, cambios en archivos de configuración de build).
+ci: para cambios en la configuración de integración continua (por ejemplo, archivos de configuración de Jenkins, GitHub Actions, etc.).
+revert: para revertir un commit anterior.
+hotfix: para correcciones urgentes de errores en producción.
