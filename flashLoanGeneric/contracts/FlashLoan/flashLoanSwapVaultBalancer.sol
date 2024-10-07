@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.8.0;
+pragma solidity >=0.8.27;
 
 import { IERC20 } from "../../../USDTFlash/contracts/IERC20.sol";
 import { TransferHelper } from '../../v3-periphery-main/contracts/libraries/TransferHelper.sol';

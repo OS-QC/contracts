@@ -1,6 +1,6 @@
 // contracts/GameItem.sol
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.27;
 
 import {ERC721URIStorage, ERC721} from "../../../../token/ERC721/extensions/ERC721URIStorage.sol";
 

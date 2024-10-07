@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.8.0;
+pragma solidity >=0.8.27;
 
-import { FlashLoanSimpleReceiverBase } from "https://github.com/aave-dao/aave-v3-origin/blob/main/src/core/contracts/flashloan/base/FlashLoanSimpleReceiverBase.sol";
-import { IERC20 } from "https://github.com/aave-dao/aave-v3-origin/blob/main/src/core/contracts/dependencies/openzeppelin/contracts/IERC20.sol";
-import { IPoolAddressesProvider } from "https://github.com/aave-dao/aave-v3-origin/blob/main/src/core/contracts/interfaces/IPoolAddressesProvider.sol";
+import {FlashLoanSimpleReceiverBase} from "@aave/core-v3/contracts/flashloan/base/FlashLoanSimpleReceiverBase.sol";
+import {IPoolAddressesProvider} from "@aave/core-v3/contracts/interfaces/IPoolAddressesProvider.sol";
+import {IERC20} from "@aave/core-v3/contracts/dependencies/openzeppelin/contracts/IERC20.sol";
 
 contract FlashLoanArbitrage is FlashLoanSimpleReceiverBase {
     address payable owner;
@@ -38,11 +38,11 @@ contract FlashLoanArbitrage is FlashLoanSimpleReceiverBase {
         return true;
     }
 
-    function requestFlashLoan(address _token, uint256 _amount) public {
+    function requestFlashLoan(address _token, uint256 _amount, bytes memory _params) public {
         address receiverAddress = address(this);
         address asset = _token;
         uint amount = _amount;
-        bytes memory params = "";
+        bytes memory params = _params;
         uint16 referralCode = 0;
 
         POOL.flashLoanSimple(

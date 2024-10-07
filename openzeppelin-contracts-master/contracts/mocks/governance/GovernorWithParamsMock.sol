@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.27;
 
 import {Governor} from "../../governance/Governor.sol";
 import {GovernorCountingSimple} from "../../governance/extensions/GovernorCountingSimple.sol";

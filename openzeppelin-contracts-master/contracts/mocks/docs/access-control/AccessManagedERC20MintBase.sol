@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.27;
 
 import {AccessManaged} from "../../../access/manager/AccessManaged.sol";
 import {ERC20} from "../../../token/ERC20/ERC20.sol";
