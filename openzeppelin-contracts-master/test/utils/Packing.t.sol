@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // This file was procedurally generated from scripts/generate/templates/Packing.t.js.
 
-pragma solidity ^0.8.27;
+pragma solidity ^0.8.0;
 
 import {Test} from "forge-std/Test.sol";
 import {Packing} from "@openzeppelin/contracts/utils/Packing.sol";

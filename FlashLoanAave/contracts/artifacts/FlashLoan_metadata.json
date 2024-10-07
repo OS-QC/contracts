@@ -180,9 +180,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"FlashLoanAave2/contracts/FlashLoan.sol": "FlashLoan"
+			"FlashLoanAave/contracts/FlashLoan.sol": "FlashLoan"
 		},
-		"evmVersion": "london",
+		"evmVersion": "cancun",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -242,12 +242,12 @@
 				"dweb:/ipfs/QmQSNGDxjYGqT1GU2CZzsWUTNcAtcfkg1jDGTH516nCAfN"
 			]
 		},
-		"FlashLoanAave2/contracts/FlashLoan.sol": {
-			"keccak256": "0x8561fc08f588581cde99a2d087d3f25405c1fad3f3dd5875efc9b11c9a1d7a8e",
+		"FlashLoanAave/contracts/FlashLoan.sol": {
+			"keccak256": "0xb5afa4b7f47285850a6ee81dc2a99896168ee07e3895c66675e20349db192bbd",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://816dc395feea28e2b1bce0c35cfa291612d2efa09aa331d7a6c93b62daaa0a27",
-				"dweb:/ipfs/QmQdsqHHA5cQVJxR4JUdPrrvGFNpWK6GSayQdYaAyrepcx"
+				"bzz-raw://40e25ab83f23250ee2662f908f4fd9723350f79aa1ae0148278e5412f86cce8b",
+				"dweb:/ipfs/QmaGfUEKH6W1diaW2FdiEeKqLareGofrZ9gHagpfzmv2vC"
 			]
 		}
 	},

@@ -5,7 +5,7 @@ import {FlashLoanSimpleReceiverBase} from "@aave/core-v3/contracts/flashloan/bas
 import {IPoolAddressesProvider} from "@aave/core-v3/contracts/interfaces/IPoolAddressesProvider.sol";
 import {IERC20} from "@aave/core-v3/contracts/dependencies/openzeppelin/contracts/IERC20.sol";
 
-contract FlashLoanArbitrage is FlashLoanSimpleReceiverBase {
+contract FlashLoan is FlashLoanSimpleReceiverBase {
     address payable owner;
 
     event ContractDeployed(address owner);
@@ -38,11 +38,11 @@ contract FlashLoanArbitrage is FlashLoanSimpleReceiverBase {
         return true;
     }
 
-    function requestFlashLoan(address _token, uint256 _amount, bytes memory _params) public {
+    function requestFlashLoan(address _token, uint256 _amount) public {
         address receiverAddress = address(this);
         address asset = _token;
         uint amount = _amount;
-        bytes memory params = _params;
+        bytes memory params = "";
         uint16 referralCode = 0;
 
         POOL.flashLoanSimple(

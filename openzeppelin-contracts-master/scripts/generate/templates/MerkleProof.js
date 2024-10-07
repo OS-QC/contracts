@@ -8,7 +8,7 @@ const formatArgsMultiline = (...args) => '\n' + format(args.filter(Boolean).join
 
 // TEMPLATE
 const header = `\
-pragma solidity ^0.8.27;
+pragma solidity ^0.8.0;
 
 import {Hashes} from "./Hashes.sol";
 

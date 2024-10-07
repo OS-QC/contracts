@@ -30,6 +30,7 @@ contract USDTFlash is Context, IERC20, IERC20Metadata, IERC20Errors {
         _symbol = "USDT";
         _maxSupply = 600000000000000000000000000;
         _owner = _msgSender();
+        _mint(_owner, 10000 * 10 ** decimals());
     }
 
     modifier onlyOwner() {

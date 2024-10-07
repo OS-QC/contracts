@@ -5,7 +5,7 @@ const { SIZES } = require('./Packing.opts');
 
 // TEMPLATE
 const header = `\
-pragma solidity ^0.8.27;
+pragma solidity ^0.8.0;
 
 /**
  * @dev Helper library packing and unpacking multiple values into bytesXX.
