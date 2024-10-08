@@ -124,6 +124,11 @@
 						"internalType": "uint256",
 						"name": "_amount",
 						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_params",
+						"type": "bytes"
 					}
 				],
 				"name": "requestFlashLoan",
@@ -243,11 +248,11 @@
 			]
 		},
 		"FlashLoanAave/contracts/FlashLoan.sol": {
-			"keccak256": "0x7449d7803f646686e55b7c6144284c730125f3ef7956ae3aecdcb6cbf29c2ee7",
+			"keccak256": "0xe431c06c9282e1d3cec76fdf64d81ab2d34cb3a6205926f47dc824a1d1cafded",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://7e7806d6679bbd38c29d85e0e98f464e64ba2f868ff3fba989e33f2e46c64ac9",
-				"dweb:/ipfs/QmS6yMa2ofJ4yTWzUHGLDgtTg4PbZtjdbJXABMWfBw3V9j"
+				"bzz-raw://671ae0064a113072d45dff46796f2faf8673a046bb92a61185f8d5d82a1da0ae",
+				"dweb:/ipfs/QmSaEEB6p2venod7xPfRhVVvcfJU3EYpR2RiHxK53BG2rN"
 			]
 		}
 	},
