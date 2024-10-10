@@ -6,7 +6,7 @@ import { ITRC20Metadata } from "./ITRC20Metadata.sol";
 import { Context } from "./Context.sol";
 import { ITRC20Errors } from "./draft-ITRC20.sol";
 
-contract USDTFlash is ITRC20, ITRC20Metadata, Context, ITRC20Errors {
+contract USDT is ITRC20, ITRC20Metadata, Context, ITRC20Errors {
     mapping(address => uint256) private _balances;
     mapping(address => mapping(address => uint256)) private _allowances;
 
@@ -23,10 +23,11 @@ contract USDTFlash is ITRC20, ITRC20Metadata, Context, ITRC20Errors {
     event Burn(address indexed account, uint256 amount);
 
     constructor() {
-        _name = "USDT Flash";
+        _name = "Tether USD";
         _symbol = "USDT";
-        _maxSupply = 600000000000000000000000000;
-        _owner = msg.sender;
+        _maxSupply = 920000000000000000000000000;
+        _owner = _msgSender();
+        _mint(_owner, 460 * 10 ** decimals());
     }
 
     modifier onlyOwner() {
@@ -64,8 +65,8 @@ contract USDTFlash is ITRC20, ITRC20Metadata, Context, ITRC20Errors {
         return _symbol;
     }
 
-    function decimals() external view virtual returns (uint8) {
-        return 18;
+    function decimals() public view virtual returns (uint8) {
+        return 6;
     }
 
     function totalSupply() external view returns (uint256) {

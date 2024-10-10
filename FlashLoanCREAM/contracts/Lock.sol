@@ -1,34 +1,41 @@
-// SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.27;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
 
-// Uncomment this line to use console.log
-// import "hardhat/console.sol";
+import {IERC3156FlashBorrower} from "@openzeppelin/contracts/interfaces/IERC3156FlashBorrower.sol";
+import {IERC3156FlashLender} from "@openzeppelin/contracts/interfaces/IERC3156FlashLender.sol";
+import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-contract Lock {
-    uint public unlockTime;
-    address payable public owner;
+contract MyFlashLoan is IERC3156FlashBorrower {
+    IERC3156FlashLender public lender;
 
-    event Withdrawal(uint amount, uint when);
-
-    constructor(uint _unlockTime) payable {
-        require(
-            block.timestamp < _unlockTime,
-            "Unlock time should be in the future"
-        );
-
-        unlockTime = _unlockTime;
-        owner = payable(msg.sender);
+    constructor(address lenderAddress) {
+        lender = IERC3156FlashLender(lenderAddress);
     }
 
-    function withdraw() public {
-        // Uncomment this line, and the import of "hardhat/console.sol", to print a log in your terminal
-        // console.log("Unlock time is %o and block timestamp is %o", unlockTime, block.timestamp);
+    function executeFlashLoan(address token, uint256 amount, bytes calldata data) external {
+        uint256 fee = lender.flashFee(token, amount);
+        uint256 repayment = amount + fee;
 
-        require(block.timestamp >= unlockTime, "You can't withdraw yet");
-        require(msg.sender == owner, "You aren't the owner");
+        // Initiate the flash loan
+        lender.flashLoan(this, token, amount, data);
 
-        emit Withdrawal(address(this).balance, block.timestamp);
+        // Ensure the contract has enough balance to repay the loan
+        require(IERC20(token).balanceOf(address(this)) >= repayment, "Insufficient balance to repay loan");
 
-        owner.transfer(address(this).balance);
+        // Repay the loan
+        IERC20(token).transfer(address(lender), repayment);
+    }
+
+    function onFlashLoan(
+        address initiator,
+        address token,
+        uint256 amount,
+        uint256 fee,
+        bytes calldata data
+    ) external override returns (bytes32) {
+        // Your custom logic here
+
+        // Return the keccak256 hash of "ERC3156FlashBorrower.onFlashLoan"
+        return keccak256("ERC3156FlashBorrower.onFlashLoan");
     }
 }

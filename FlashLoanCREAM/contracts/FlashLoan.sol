@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.27;
 
-import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import {IERC3156FlashBorrower} from "@openzeppelin/contracts/interfaces/IERC3156FlashBorrower.sol";
-import {IERC3156FlashLender} from "@openzeppelin/contracts/interfaces/IERC3156FlashLender.sol";
+import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import { IERC3156FlashBorrower } from "@openzeppelin/contracts/interfaces/IERC3156FlashBorrower.sol";
+import { IERC3156FlashLender } from "@openzeppelin/contracts/interfaces/IERC3156FlashLender.sol";
 
 contract FlashLoanArbitrageCream is IERC3156FlashBorrower {
     address payable owner;
@@ -18,11 +18,10 @@ contract FlashLoanArbitrageCream is IERC3156FlashBorrower {
     }
 
     function executeOperation(
-        address initiator,
         address token,
         uint256 amount,
         uint256 fee,
-        bytes calldata data
+        bytes calldata params
     ) external override returns (bytes32) {
         // Decodificar los parámetros
         (address[] memory exchanges, bytes[] memory data) = abi.decode(params, (address[], bytes[]));
@@ -30,7 +29,7 @@ contract FlashLoanArbitrageCream is IERC3156FlashBorrower {
         // Ejecutar la lógica de arbitraje
         for (uint256 i = 0; i < exchanges.length; i++) {
             (bool success, ) = exchanges[i].call(data[i]);
-            require(success, "Arbitrage operation failed");
+            require(success, string(abi.encodePacked("Arbitrage operation failed at exchange ", i)));
         }
 
         // Rembolso del préstamo
